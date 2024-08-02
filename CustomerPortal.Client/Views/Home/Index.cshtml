@@ -1,0 +1,50 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center accordion-button">
+    <h1 class="display-6">Welcome To Customer Portal Web App</h1>
+
+    @* <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+</div>
+
+<br />
+
+<div >
+    <button class="btn-success">Add New Customer</button>
+</div>
+
+<br />
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>@Html.DisplayName("First Name")</th>
+            <th>@Html.DisplayName("Last Name")</th>
+            <th>@Html.DisplayName("Email")</th>
+            <th>@Html.DisplayName("Phone")</th>
+            <th>@Html.DisplayName("Address")</th>
+            <th>@Html.DisplayName("Customer Type")</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr>
+                <td>@row["FirstName"]</td>
+                <td>@row["LastName"]</td>
+                <td>@row["Email"]</td>
+                <td>@row["Phone"]</td>
+                <td>@row["Address"]</td>
+                <td>@row["CustomerType"]</td>
+                <td>@Html.ActionLink("Edit", "Edit")</td>
+                <td>@Html.ActionLink("Delete", "Delete")</td>
+            </tr>
+        }
+    </tbody>
+</table>
